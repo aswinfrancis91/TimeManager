@@ -1,0 +1,48 @@
+﻿<Window x:Class="TimeManager.TimeManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TimeManagerWindow" Icon="Icons\Time.ico" Height="403" Width="608" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl Height="340" HorizontalAlignment="Left" Margin="12,12,0,0" Name="tabControl1" VerticalAlignment="Top" Width="562" SelectionChanged="tabControl1_SelectionChanged">
+            <TabItem Header="Time" Name="tabItem1">
+                <Grid Height="302" Width="542">
+                    <Label Content="" Height="37" HorizontalAlignment="Left" Margin="216,12,0,0" Name="lblTimer" VerticalAlignment="Top" Width="80" />
+                    <Button Content="Swipe In" Height="23" HorizontalAlignment="Left" Margin="12,77,0,0" Name="btnSwipeIn" VerticalAlignment="Top" Width="75" Click="btnSwipeIn_Click" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="105,77,0,0" Name="txtSwipeIn" VerticalAlignment="Top" Width="95" IsReadOnly="True" TextChanged="txtSwipeIn_TextChanged" />
+                    <Button Content="Swipe Out" Height="23" HorizontalAlignment="Left" Margin="310,76,0,0" Name="btnSwipeOut" VerticalAlignment="Top" Width="75" Click="btnSwipeOut_Click" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="403,77,0,0" Name="txtSwipeOut" VerticalAlignment="Top" Width="120" IsReadOnly="True" TextChanged="txtSwipeOut_TextChanged" />
+                    <Button Content="Start" Height="23" HorizontalAlignment="Left" Margin="171,161,0,0" Name="btnStart" VerticalAlignment="Top" Width="75" Click="btnStart_Click" />
+                    <Button Content="Pause" Height="23" HorizontalAlignment="Left" Margin="255,161,0,0" Name="btnPause" VerticalAlignment="Top" Width="75" Click="btnPause_Click" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="216,132,0,0" Name="txtOdcCounter" Text="" VerticalAlignment="Top" FontSize="16" Foreground="#FFEB1818" />
+                    <Label Content="Total ODC In-Time" Height="28" HorizontalAlignment="Left" Margin="127,195,0,0" Name="lblTotalTimer" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="241,197,0,0" Name="txtTotalOdcTime" VerticalAlignment="Top" Width="120" IsReadOnly="True" TextChanged="txtTotalOdcTime_TextChanged" />
+                    <Button Content="Save Report" Height="32" HorizontalAlignment="Left" Margin="442,230,0,0" Name="btnSaveReport" VerticalAlignment="Top" Width="81" Click="btnSaveReport_Click" />
+                    <Label Content="Employee ID" Height="28" HorizontalAlignment="Left" Margin="346,1,0,0" Name="label1" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="429,3,0,0" Name="txtEmployeeId" VerticalAlignment="Top" Width="94" IsReadOnly="True" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Report" Name="tabReport">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="638*" />
+                    </Grid.ColumnDefinitions>
+                    <DataGrid AutoGenerateColumns="True" Grid.Column="1" Height="302" HorizontalAlignment="Left" Margin="0,6,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="543" ItemsSource="{Binding Data}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tasks" Name="tabTasks">
+                <Grid>
+                    <Label Content="Add Task" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label2" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="6,31,0,0" Name="txtTask" VerticalAlignment="Top" Width="430" />
+                    <Button Content="Add" Height="23" HorizontalAlignment="Right" Margin="0,30,20,0" Name="btnAddTask" VerticalAlignment="Top" Width="75" Click="btnAddTask_Click" />
+                    <Grid Name="TaskGridPanel" Margin="6,78,20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
